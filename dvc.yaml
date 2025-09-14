@@ -1,0 +1,14 @@
+stages:
+  prepare:
+    cmd: python src/prepare_data.py
+    deps:
+    - src/prepare_data.py
+    outs:
+    - data/iris.csv
+  train:
+    cmd: python src/train.py
+    deps:
+    - data/iris.csv
+    - src/train.py
+    outs:
+    - models/model.joblib
